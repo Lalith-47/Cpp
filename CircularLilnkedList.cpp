@@ -35,7 +35,20 @@ void display(int stop){
     }
 }
 
-//Body of the main function
+//Insert Node at the begining
+void insert_at_beginning(int data){
+    node *begin = new node{data,head};
+    tail->next = begin;
+    head = begin;
+}
+
+//Insert Node at the end
+void insertAtTheEnd(int data){
+    node *end = new node{data,head};
+    tail->next = end;
+    tail = end;
+}
+//*Body of the main function
 int main()
 {
     int n,data;
