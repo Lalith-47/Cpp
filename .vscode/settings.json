@@ -1,7 +1,11 @@
 {
-    "files.associations": {
-        "*.dbclient-js": "javascript",
-        "iostream": "cpp",
-        "ostream": "cpp"
-    }
+  "files.associations": {
+    "*.dbclient-js": "javascript",
+    "iostream": "cpp",
+    "ostream": "cpp",
+    "deque": "cpp",
+    "string": "cpp",
+    "unordered_map": "cpp",
+    "vector": "cpp"
+  }
 }
