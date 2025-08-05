@@ -12,7 +12,7 @@ node *head = NULL;
 node *tail = NULL;
 
 // Creation of LinkedList
-void insert(int value){
+void append(int value){
     node *temp = new node{value,head};
     if(head == NULL){
         head = tail = temp;
@@ -42,12 +42,7 @@ void insert_at_beginning(int data){
     head = begin;
 }
 
-//Insert Node at the end
-void insertAtTheEnd(int data){
-    node *end = new node{data,head};
-    tail->next = end;
-    tail = end;
-}
+
 //*Body of the main function
 int main()
 {
@@ -57,7 +52,7 @@ int main()
     for (int i = 0; i < n;i++){
         cout << "Enter Element " << i + 1 << ": ";
         cin >> data;
-        insert(data);
+        append(data);
     }
     display(n);
     return 0;
