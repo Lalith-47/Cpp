@@ -16,6 +16,7 @@ void display(); //Function to display all Elements stack
 int pop(); //Fuction to remove the top most element in the stack
 void remove(int); //Function to remove n number of elements form the top
 void clear(); //Function to empty the stack
+void peek(); //Function to print the top most Element along with the index
 
 // Body of the main function
 int main(){
@@ -33,8 +34,9 @@ int main(){
     cout << "Enter the number to perform the operation:"
          << "\n1: display all Elements"
          << "\n2: pop top Element"
-         << "\n3: Remove n Elemens starting with the top"
+         << "\n3: Remove n Elements starting with the top"
          << "\n4: Empty the Stack"
+         <<"\n5: Print Top Element and index"
          <<"\nchoice: ";
     cin >> choice;
     if (choice==1)
@@ -52,6 +54,9 @@ int main(){
     }
     else if(choice == 4){
         clear();
+    }
+    else if(choice == 5){
+        peek();
     }
     else{
         cout << "Invalid Input";
@@ -109,4 +114,10 @@ void clear(){
     while(s->top!=-1){
         s->top--;
     }
+}
+
+//Function to print the top Element and index
+void peek(){
+    cout << "Element: " << s->arr[s->top] << endl;
+    cout << "Index: " << s->top << endl;
 }
