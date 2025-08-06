@@ -19,7 +19,7 @@ void clear(); //Function to empty the stack
 
 // Body of the main function
 int main(){
-    int n, val;
+    int n, val,choice;
     cout << "Enter size of the stack: ";
     cin >> n;
     s->top = -1;
@@ -30,10 +30,33 @@ int main(){
         cin >> val;
         push(val);
     }
-    display();
-    clear();
-    cout << s->top;
-    display();
+    cout << "Enter the number to perform the operation:"
+         << "\n1: display all Elements"
+         << "\n2: pop top Element"
+         << "\n3: Remove n Elemens starting with the top"
+         << "\n4: Empty the Stack"
+         <<"\nchoice: ";
+    cin >> choice;
+    if (choice==1)
+    {
+        display();
+    }
+    else if(choice == 2){
+        pop();
+    }
+    else if(choice == 3){
+        cout << "Enter No of Elements to remove: ";
+        int x = 1;
+        cin >> x;
+        remove(x);
+    }
+    else if(choice == 4){
+        clear();
+    }
+    else{
+        cout << "Invalid Input";
+    }
+
     return 0;
 }
 
@@ -51,9 +74,10 @@ void push(int data){
 //Function to display all the Elements in the stack
 void display(){
     if(s->top!=-1){
-        for (int i = 0; i <= s->top;i++){
+        for (int i = s->top; i > -1;i--){
             cout << s->arr[i] << endl;
         }
+        cout << "Top: " << s->arr[s->top] << endl;
     }
     else{
         cout << "\nEmpty Stack\n";
