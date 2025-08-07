@@ -20,9 +20,10 @@ void peek(); //Function to print the top most Element along with the index
 int isEmpty();//Function to check if the stack is Empty
 int isFull(); //Function to check if the stack is full
 void insert(int); //Function to insert set of data into stack
+
 // Body of the main function
 int main(){
-    int n,x,opt,choice,sizeOfStack=0;
+    int n,x,opt,choice,sizeOfStack=0,temp=0;
     cout << "Enter size of the stack: ";
     cin >> n;
     s->top = -1;
@@ -37,6 +38,7 @@ int main(){
     }
     else{
         cout << "No of data to be Entered is more than size of Stack  ";
+        cout << "\nStack space available: " << n <<endl;
         sizeOfStack -= x;
         return 0;
     }
@@ -81,7 +83,8 @@ int main(){
                      << "\n0 -> No"
                      << "\nChoice: ";
                 cin >> opt;
-                if(opt == 1){
+                if (opt == 1)
+                {
                     cout << "Enter number of values to Enter: ";
                     cin >> x;
                     sizeOfStack += x;
@@ -91,8 +94,8 @@ int main(){
                     }
                 else{
                     cout << "Stack OverFlow";
+                    cout << "\nStack space available: " << n <<endl;
                     sizeOfStack -= x;
-
                 }
                 }
                 else if(opt == 0){
@@ -125,6 +128,7 @@ int main(){
             else if(choice==8){
                 cout << "Enter number of values to Enter: ";
                 cin >> x;
+                temp = n - sizeOfStack;
                 sizeOfStack += x;
                 if (sizeOfStack <= n)
                 {
@@ -132,7 +136,9 @@ int main(){
                 }
                 else{
                     cout << "Stack OverFlow";
+                    cout << "\nStack space available: " << temp <<endl;
                     sizeOfStack -= x;
+                    temp = 0;
                 }
             }
             else{
