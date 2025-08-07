@@ -16,8 +16,9 @@ void display(); //Function to display all Elements stack
 int pop(); //Fuction to remove the top most element in the stack
 void remove(int); //Function to remove n number of elements form the top
 void clear(); //Function to empty the stack
-void peek(); //Function to print the top most Element along with the index
-int isEmpty();//Function to check if the stack is Empty
+void peek_info(); //Function to print the top most Element along with the index
+int peek(); //Function to return the top Element index
+int isEmpty(); // Function to check if the stack is Empty
 int isFull(); //Function to check if the stack is full
 void insert(int); //Function to insert set of data into stack
 
@@ -42,8 +43,8 @@ int main(){
         sizeOfStack -= x;
         return 0;
     }
-    while(1){
-
+    while (1)
+    {
         cout << "\n\nEnter the number to perform the operation:"
              << "\n  0: To Exit the loop"     
              << "\n  1: display all Elements"
@@ -54,6 +55,7 @@ int main(){
              << "\n  6: To Check if Stack is empty"
              << "\n  7: To Check if Stack is Full"
              << "\n  8: To add values"
+             << "\n  9: To print the index of the Top Element"
              << "\nchoice: ";
         cin >> choice;
         if(choice==0){
@@ -107,7 +109,7 @@ int main(){
                 }
             }
             else if(choice == 5){
-                peek();
+                peek_info();
             }
             else if(choice == 6){
                 if(isEmpty()){
@@ -128,7 +130,7 @@ int main(){
             else if(choice==8){
                 cout << "Enter number of values to Enter: ";
                 cin >> x;
-                temp = n - sizeOfStack;
+                temp = n - (peek()+1);
                 sizeOfStack += x;
                 if (sizeOfStack <= n)
                 {
@@ -140,6 +142,10 @@ int main(){
                     sizeOfStack -= x;
                 }
                 temp = 0;
+            }
+            else if(choice==9){
+                int idx = peek();
+                cout << "Index: " << idx;
             }
             else{
                 cout << "Invalid Input\n";
@@ -211,8 +217,13 @@ void clear(){
     }
 }
 
+//Function returns the top Element index
+int peek(){
+    return s->top;
+}
+
 //Function to print the top Element and index
-void peek(){
+void peek_info(){
     cout << "Element: " << s->arr[s->top] << endl;
     cout << "Index: " << s->top << endl;
 }
