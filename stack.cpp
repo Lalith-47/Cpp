@@ -22,7 +22,7 @@ int isFull(); //Function to check if the stack is full
 void insert(int); //Function to insert set of data into stack
 // Body of the main function
 int main(){
-    int n,x,choice;
+    int n,x,opt,choice,sizeOfStack=0;
     cout << "Enter size of the stack: ";
     cin >> n;
     s->top = -1;
@@ -30,57 +30,115 @@ int main(){
     s->arr = new int[n];
     cout << "Enter number of values to Enter: ";
     cin >> x;
-    insert(x);
-    cout << "Enter the number to perform the operation:"
-         << "\n  1: display all Elements"
-         << "\n  2: pop top Element"
-         << "\n  3: Remove n Elements starting with the top"
-         << "\n  4: Empty the Stack"
-         << "\n  5: Print Top Element and index"
-         << "\n  6: To Check if Stack is empty"
-         << "\n  7: To Check if Stack is Full"
-         << "\nchoice: ";
-    cin >> choice;
-    if (choice==1)
+    sizeOfStack += x;
+    if (sizeOfStack <= n)
     {
-        display();
-    }
-    else if(choice == 2){
-        pop();
-        display();
-    }
-    else if(choice == 3){
-        cout << "Enter No of Elements to remove: ";
-        int x = 1;
-        cin >> x;
-        remove(x);
-        display();
-    }
-    else if(choice == 4){
-        clear();
-        display();
-    }
-    else if(choice == 5){
-        peek();
-    }
-    else if(choice == 6){
-        if(isEmpty()){
-            cout << "Stack is Empty\n";
-        }
-        else{
-            cout << "Stack contains data\n";
-        }
-    }
-    else if(choice == 7){
-        if(isFull()){
-            cout << "Stack is Full\n";
-        }
-        else{
-            cout << "Stack has space\n";
-        }
+        insert(x);
     }
     else{
-        cout << "Invalid Input\n";
+        cout << "No of data to be Entered is more than size of Stack  ";
+        sizeOfStack -= x;
+        return 0;
+    }
+    while(1){
+
+        cout << "\n\nEnter the number to perform the operation:"
+             << "\n  0: To Exit the loop"     
+             << "\n  1: display all Elements"
+             << "\n  2: pop top Element"
+             << "\n  3: Remove n Elements starting with the top"
+             << "\n  4: Empty the Stack"
+             << "\n  5: Print Top Element and index"
+             << "\n  6: To Check if Stack is empty"
+             << "\n  7: To Check if Stack is Full"
+             << "\n  8: To add values"
+             << "\nchoice: ";
+        cin >> choice;
+        if(choice==0){
+            break;
+        }
+        else{
+            if (choice==1)
+            {
+                display();
+            }
+            else if(choice == 2){
+                pop();
+                display();
+            }
+            else if(choice == 3){
+                cout << "Enter No of Elements to remove: ";
+                int x = 1;
+                cin >> x;
+                remove(x);
+                display();
+            }
+            else if(choice == 4){
+                clear();
+                display();
+                cout << "Do you wish to add data to Stack?"
+                     << "\n1 -> Yes"
+                     << "\n0 -> No"
+                     << "\nChoice: ";
+                cin >> opt;
+                if(opt == 1){
+                    cout << "Enter number of values to Enter: ";
+                    cin >> x;
+                    sizeOfStack += x;
+                    if (sizeOfStack <= n)
+                    {
+                        insert(x);
+                    }
+                else{
+                    cout << "Stack OverFlow";
+                    sizeOfStack -= x;
+
+                }
+                }
+                else if(opt == 0){
+                    cout << "Code Terminated\n";
+                    return 0;
+                }
+                else{
+                    cout << "Invalid Input";
+                }
+            }
+            else if(choice == 5){
+                peek();
+            }
+            else if(choice == 6){
+                if(isEmpty()){
+                    cout << "Stack is Empty\n";
+                }
+                else{
+                    cout << "Stack contains data\n";
+                }
+            }
+            else if(choice == 7){
+                if(isFull()){
+                    cout << "Stack is Full\n";
+                }
+                else{
+                    cout << "Stack has space\n";
+                }
+            }
+            else if(choice==8){
+                cout << "Enter number of values to Enter: ";
+                cin >> x;
+                sizeOfStack += x;
+                if (sizeOfStack <= n)
+                {
+                    insert(x);
+                }
+                else{
+                    cout << "Stack OverFlow";
+                    sizeOfStack -= x;
+                }
+            }
+            else{
+                cout << "Invalid Input\n";
+            }
+        }
     }
 
     return 0;
