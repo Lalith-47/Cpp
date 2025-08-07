@@ -59,6 +59,7 @@ int main(){
              << "\nchoice: ";
         cin >> choice;
         if(choice==0){
+            cout << "Code Terminated";
             break;
         }
         else{
@@ -68,6 +69,7 @@ int main(){
             }
             else if(choice == 2){
                 pop();
+                sizeOfStack = peek() + 1;
                 display();
             }
             else if(choice == 3){
@@ -75,6 +77,7 @@ int main(){
                 int x = 1;
                 cin >> x;
                 remove(x);
+                sizeOfStack = peek() + 1;
                 display();
             }
             else if(choice == 4){
@@ -89,6 +92,7 @@ int main(){
                 {
                     cout << "Enter number of values to Enter: ";
                     cin >> x;
+                    sizeOfStack = peek() + 1;
                     sizeOfStack += x;
                     if (sizeOfStack <= n)
                     {
