@@ -97,21 +97,26 @@ int main(){
     return 0;
 }
 
-    // Function to remove the top most Element in stack and return the removed element
-    int pop()
+// Function to remove the top most Element in stack and return the removed element
+int pop(){
+    if (top == NULL)
     {
-        if (top->prev == NULL)
-        {
-            cout << "Stack UnderFlow"<<endl;
-            return -1;
-        }
-        else{
-        node *trash = top;
-        int value = top->data;
+        cout << "Stack UnderFlow"<<endl;
+        return -1;
+    }
+    else{
+    node *trash = top;
+    int value = top->data;
+    if(top->prev==NULL){
+        free(top);
+        top = NULL;
+    }
+    else{
         top = top->prev;
         free(trash);
-        return value;
     }
+    return value;
+}
 }
 
 // Function to append new data and update the top pointer
@@ -143,23 +148,33 @@ void insert(int n){
 
 //Function to display the top element and the address of the element
 void peek_info(){
-    cout << "\nData: " << top->data<<endl;
-    cout << "Address: " << top<<endl;
+    if(top!=NULL){
+        cout << "\nData: " << top->data<<endl;
+        cout << "Address: " << top<<endl;
+    }
+    else{
+        cout << "Stack is empty" << endl;
+    }
 }
 
 //Function to display all the Elements in the Stack
 void display(){
+    if (top!=NULL){
     node *temp = top;
-    while(temp->prev!=NULL){
+    while (temp->prev != NULL){
     if(temp!=top){
         cout << temp->data  << endl;
     }
     else{
         cout <<  temp->data << " <- Top"<< endl;
-        }
-        temp = temp->prev;
+    }
+    temp = temp->prev;
     }
     cout << temp->data << endl;
+    }
+else{
+    cout << "Stack is Empty\nNothing to Display"<<endl;
+    }
 }
 
 //Function to remove set of values from the stack
