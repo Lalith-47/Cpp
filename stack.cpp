@@ -138,8 +138,8 @@ int main(){
                     cout << "Stack OverFlow";
                     cout << "\nStack space available: " << temp <<endl;
                     sizeOfStack -= x;
-                    temp = 0;
                 }
+                temp = 0;
             }
             else{
                 cout << "Invalid Input\n";
