@@ -1,30 +1,33 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-//Defining the STACK
-typedef struct STACK{
+// Defining the STACK
+typedef struct STACK
+{
     int top;
     int size;
     int *arr;
 } stack;
 
-stack *s= new stack; //Stack declaration and memory allocation
+stack *s = new stack; // Stack declaration and memory allocation
 
 //*Function Declaration
-void push(int);  //Push Function for stack
-void display(); //Function to display all Elements stack
-int pop(); //Fuction to remove the top most element in the stack
-void remove(int); //Function to remove n number of elements form the top
-void clear(); //Function to empty the stack
-void peek_info(); //Function to print the top most Element along with the index
-int peek(); //Function to return the top Element index
-int isEmpty(); // Function to check if the stack is Empty
-int isFull(); //Function to check if the stack is full
-void insert(int); //Function to insert set of data into stack
+void push(int);   // Push Function for stack
+void display();   // Function to display all Elements stack
+int pop();        // Fuction to remove the top most element in the stack
+void remove(int); // Function to remove n number of elements form the top
+void clear();     // Function to empty the stack
+int peek();       // Function to return the top Element
+void peek_info(); // Function to print the top most Element along with the index
+int peek_idx();   // Function to return the top Element index
+int isEmpty();    // Function to check if the stack is Empty
+int isFull();     // Function to check if the stack is full
+void insert(int); // Function to insert set of data into stack
 
 // Body of the main function
-int main(){
-    int n,x,opt,choice,sizeOfStack=0,temp=0;
+int main()
+{
+    int n, x, opt, choice, sizeOfStack = 0, temp = 0;
     cout << "Enter size of the stack: ";
     cin >> n;
     s->top = -1;
@@ -37,16 +40,17 @@ int main(){
     {
         insert(x);
     }
-    else{
+    else
+    {
         cout << "No of data to be Entered is more than size of Stack  ";
-        cout << "\nStack space available: " << n <<endl;
+        cout << "\nStack space available: " << n << endl;
         sizeOfStack -= x;
         return 0;
     }
     while (1)
     {
         cout << "\n\nEnter the number to perform the operation:"
-             << "\n  0: To Exit the loop"     
+             << "\n  0: To Exit the loop"
              << "\n  1: display all Elements"
              << "\n  2: pop top Element"
              << "\n  3: Remove n Elements starting with the top"
@@ -58,29 +62,34 @@ int main(){
              << "\n  9: To print the index of the Top Element"
              << "\nchoice: ";
         cin >> choice;
-        if(choice==0){
-            cout << "Code Terminated";
+        if (choice == 0)
+        {
+            cout << "Code Terminated" << endl;
             break;
         }
-        else{
-            if (choice==1)
+        else
+        {
+            if (choice == 1)
             {
                 display();
             }
-            else if(choice == 2){
+            else if (choice == 2)
+            {
                 pop();
-                sizeOfStack = peek() + 1;
+                sizeOfStack = peek_idx() + 1;
                 display();
             }
-            else if(choice == 3){
+            else if (choice == 3)
+            {
                 cout << "Enter No of Elements to remove: ";
                 int x = 1;
                 cin >> x;
                 remove(x);
-                sizeOfStack = peek() + 1;
+                sizeOfStack = peek_idx() + 1;
                 display();
             }
-            else if(choice == 4){
+            else if (choice == 4)
+            {
                 clear();
                 display();
                 cout << "Do you wish to add data to Stack?"
@@ -92,66 +101,80 @@ int main(){
                 {
                     cout << "Enter number of values to Enter: ";
                     cin >> x;
-                    sizeOfStack = peek() + 1;
+                    sizeOfStack = peek_idx() + 1;
                     sizeOfStack += x;
                     if (sizeOfStack <= n)
                     {
                         insert(x);
                     }
-                else{
-                    cout << "Stack OverFlow";
-                    cout << "\nStack space available: " << n <<endl;
-                    sizeOfStack -= x;
+                    else
+                    {
+                        cout << "Stack OverFlow";
+                        cout << "\nStack space available: " << n << endl;
+                        sizeOfStack -= x;
+                    }
                 }
-                }
-                else if(opt == 0){
+                else if (opt == 0)
+                {
                     cout << "Code Terminated\n";
                     return 0;
                 }
-                else{
+                else
+                {
                     cout << "Invalid Input";
                 }
             }
-            else if(choice == 5){
+            else if (choice == 5)
+            {
                 peek_info();
             }
-            else if(choice == 6){
-                if(isEmpty()){
+            else if (choice == 6)
+            {
+                if (isEmpty())
+                {
                     cout << "Stack is Empty\n";
                 }
-                else{
+                else
+                {
                     cout << "Stack contains data\n";
                 }
             }
-            else if(choice == 7){
-                if(isFull()){
+            else if (choice == 7)
+            {
+                if (isFull())
+                {
                     cout << "Stack is Full\n";
                 }
-                else{
+                else
+                {
                     cout << "Stack has space\n";
                 }
             }
-            else if(choice==8){
+            else if (choice == 8)
+            {
                 cout << "Enter number of values to Enter: ";
                 cin >> x;
-                temp = n - (peek()+1);
+                temp = n - (peek_idx() + 1);
                 sizeOfStack += x;
                 if (sizeOfStack <= n)
                 {
                     insert(x);
                 }
-                else{
+                else
+                {
                     cout << "Stack OverFlow";
-                    cout << "\nStack space available: " << temp <<endl;
+                    cout << "\nStack space available: " << temp << endl;
                     sizeOfStack -= x;
                 }
                 temp = 0;
             }
-            else if(choice==9){
-                int idx = peek();
+            else if (choice == 9)
+            {
+                int idx = peek_idx();
                 cout << "Index: " << idx;
             }
-            else{
+            else
+            {
                 cout << "Invalid Input\n";
             }
         }
@@ -160,19 +183,23 @@ int main(){
     return 0;
 }
 
-//Push function for stack
-void push(int data){
-   if(s->top==s->size-1){
-       cout<<"\nStack overflow\n";
-   }
-   else{
+// Push function for stack
+void push(int data)
+{
+    if (s->top == s->size - 1)
+    {
+        cout << "\nStack overflow\n";
+    }
+    else
+    {
         s->top++;
-        s->arr[s->top]= data;
+        s->arr[s->top] = data;
     }
 }
 
-//Function to insert set of data to Stack
-void insert(int n){
+// Function to insert set of data to Stack
+void insert(int n)
+{
     int val;
     for (int i = 0; i < n; i++)
     {
@@ -181,73 +208,111 @@ void insert(int n){
         push(val);
     }
 }
-//Function to display all the Elements in the stack
-void display(){
-    if(s->top!=-1){
-        for (int i = s->top; i > -1;i--){
-            cout << s->arr[i] << endl;
+// Function to display all the Elements in the stack
+void display()
+{
+    if (s->top != -1)
+    {
+        for (int i = s->top; i > -1; i--)
+        {
+            if (s->arr[i] != s->arr[s->top])
+            {
+                cout << s->arr[i] << endl;
+            }
+            else
+            {
+                cout << s->arr[i] << " <- Top " << endl;
+            }
         }
-        cout << "Top: " << s->arr[s->top] << endl;
     }
-    else{
+    else
+    {
         cout << "Empty Stack\n";
     }
 }
 
 // Function to remove the top most Element in the stack
-int pop(){
-    if(s->top==-1){
+int pop()
+{
+    if (s->top == -1)
+    {
         cout << "Stack Underlow\n";
         return -1;
     }
-    else{
+    else
+    {
         int data = s->arr[s->top];
         s->top--;
         return data;
     }
 }
 
-//Function to remove N number of elements in the Stack
-void remove(int n){
-    for (int i = 0; i < n;i++){
+// Function to remove N number of elements in the Stack
+void remove(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
         pop();
     }
 }
 
-//Function to clear the Entire Stack
-void clear(){
-    while(s->top!=-1){
+// Function to clear the Entire Stack
+void clear()
+{
+    while (s->top != -1)
+    {
         s->top--;
     }
 }
 
-//Function returns the top Element index
-int peek(){
+// Function returns the top Element index
+int peek_idx()
+{
     return s->top;
 }
 
-//Function to print the top Element and index
-void peek_info(){
-    cout << "Element: " << s->arr[s->top] << endl;
+// Function to print the top Element and index
+void peek_info()
+{
+    cout << "Element: " << peek() << endl;
     cout << "Index: " << s->top << endl;
 }
-//Function to check if Stack is empty
-int isEmpty(){
-    if(s->top==-1){
-           return 1;
-    }
-    else{
-        return 0;
-    }
-}
-
-//Function to check if Stack is Full
-int isFull(){
-    if(s->top==s->size-1){
+// Function to check if Stack is empty
+int isEmpty()
+{
+    if (s->top == -1)
+    {
         return 1;
-   }
-   else{
+    }
+    else
+    {
         return 0;
     }
 }
 
+// Function to check if Stack is Full
+int isFull()
+{
+    if (s->top == s->size - 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+// Function to return the top Element
+int peek()
+{
+    if (s->top != -1)
+    {
+        return s->arr[s->top];
+    }
+    else
+    {
+        cout << "Stack is Empty" << endl;
+        return -1;
+    }
+}
