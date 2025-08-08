@@ -14,9 +14,10 @@ struct node
 node *top = NULL;
 
 //*Function prototypes
-void push();   // Function to push the Element at the top of the stack
-int pop();     // Function to pop the top Element from the top of the stack
-int isEmpty(); // Function to check if stack is Empty
+void push();              // Function to push the Element at the top of the stack
+int pop();                // Function to pop the top Element from the top of the stack
+int isEmpty();            // Function to check if stack is Empty
+void paranthesis(string); // Function to check if the expression contains valid parenthesis
 
 // Body of the main function
 int main()
@@ -25,27 +26,7 @@ int main()
     cout << "\n\033[6;34m \u2139 You Can Enter along with spaces \033[0m"
          << "\n  \033[35m Enter Expression: \033[0m";
     getline(cin, s);
-    for (char ch : s)
-    {
-        if (ch == '(')
-        {
-            push();
-        }
-        else if (ch == ')')
-        {
-            pop();
-        }
-    }
-    if (isEmpty())
-    {
-        cout << "\033[32m✅ Parenthesis Matched\033[0m"
-             << "\n\033[34m   Valid Expression \033[0m\n";
-        exit(0);
-    }
-    else
-    {
-        cout << "\033[33m⚠️ Parenthesis Mismatched\033[0m" << endl;
-    }
+    paranthesis(s);
     return 0;
 }
 
@@ -90,5 +71,31 @@ int isEmpty()
     else
     {
         return 0;
+    }
+}
+
+// Function to check if the given expression had valid no of parenthesis or not
+void paranthesis(string s)
+{
+    for (char ch : s)
+    {
+        if (ch == '(')
+        {
+            push();
+        }
+        else if (ch == ')')
+        {
+            pop();
+        }
+    }
+    if (isEmpty())
+    {
+        cout << "\033[32m✅ Parenthesis Matched\033[0m"
+             << "\n\033[34m   Valid Expression \033[0m\n";
+        exit(0);
+    }
+    else
+    {
+        cout << "\033[33m⚠️ Parenthesis Mismatched\033[0m" << endl;
     }
 }
