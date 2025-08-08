@@ -15,7 +15,7 @@ node *top = NULL;
 
 //*Function prototypes
 void push(char);          // Function to push data to the top of Stack
-bool pop();               // Function to pop the top element form the Stack
+bool pop(char);           // Function to pop the top element form the Stack
 bool isEmpty();           // Functionto return true if Stack is empty
 bool parenthesis(string); // Function to check for multiple parenthesis
 
