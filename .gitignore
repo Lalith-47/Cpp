@@ -1,0 +1,67 @@
+# === C++ Compiled Files ===
+*.o
+*.obj
+*.so
+*.a
+*.out
+a.out
+*.gch
+*.exe
+
+# === Build and Debug Directories ===
+build/
+bin/
+debug/
+release/
+dist/
+
+# === CMake Files ===
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# === VS Code Files ===
+.vscode/
+*.code-workspace
+
+# === CLion / JetBrains ===
+.idea/
+
+# === Logs and Temporary Files ===
+*.log
+*.tmp
+*.swp
+*.DS_Store
+*~
+
+# === Core Dumps ===
+core
+core.*
+
+# === GDB and Valgrind ===
+vgcore.*
+.gdb_history
+.gdbinit
+
+# === Object Dump Files ===
+*.dSYM/
+
+# === Backup Files ===
+*.bak
+*.old
+*.orig
+
+# === Tags and Indexes ===
+tags
+TAGS
+
+# === Custom Competitive Programming Ignore Patterns ===
+# Ignore input/output test cases or backups
+*.in
+*.out.txt
+*.test
+*.run
+*.input
+*.output
+test_cases/
