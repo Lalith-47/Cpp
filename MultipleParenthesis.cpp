@@ -76,14 +76,7 @@ bool pop(char brackets)
 // Function to check if stack is Empty
 bool isEmpty()
 {
-    if (top == NULL)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return (top == NULL);
 }
 
 // Function to check for multiple parenthesis
