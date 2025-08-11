@@ -131,3 +131,14 @@
 #define won u8"\u20A9"   // South Korean Won ₩
 #define rub u8"\u20BD"   // Russian Ruble ₽
 #define lira u8"\u20BA"  // Turkish Lira ₺
+
+// Cursor Movement Macros
+#define up(n) "\033[" #n "A"
+#define down(n) "\033[" #n "B"
+#define forward(n) "\033[" #n "C"
+#define back(n) "\033[" #n "D"
+#define clr "\033[K"
+#define cls "\033[2J"
+#define home "\033[H"
+#define hide "\033[?25l"
+#define show "\033[?25h"
