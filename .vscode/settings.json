@@ -1,11 +1,13 @@
 {
   "files.associations": {
     "*.dbclient-js": "javascript",
+    ".gitignore": "gitignore",
     "iostream": "cpp",
     "ostream": "cpp",
     "deque": "cpp",
     "string": "cpp",
     "unordered_map": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "cstdlib": "cpp"
   }
 }
