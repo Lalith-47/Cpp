@@ -118,3 +118,16 @@
 #define angry u8"\U0001F620"     // 😠
 #define surprised u8"\U0001F62E" // 😮
 #define thinking u8"\U0001F914"  // 🤔
+
+// Currency symbols
+#define dollar u8"$"     // US Dollar $
+#define euro u8"\u20AC"  // Euro €
+#define yen u8"\u00A5"   // Japanese Yen ¥
+#define pound u8"\u00A3" // British Pound £
+#define btc u8"\u20BF"   // Bitcoin ₿
+#define aud u8"A$"       // Australian Dollar
+#define cad u8"C$"       // Canadian Dollar
+#define yuan u8"\u5143"  // Chinese Yuan 元
+#define won u8"\u20A9"   // South Korean Won ₩
+#define rub u8"\u20BD"   // Russian Ruble ₽
+#define lira u8"\u20BA"  // Turkish Lira ₺
