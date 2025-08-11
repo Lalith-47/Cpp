@@ -119,7 +119,8 @@
 #define surprised u8"\U0001F62E" // 😮
 #define thinking u8"\U0001F914"  // 🤔
 
-// Currency symbols
+// Currency symbols as UTF-8 strings using #define macros with lowercase names
+#define inr u8"\u20B9"   // Indian Rupee ₹
 #define dollar u8"$"     // US Dollar $
 #define euro u8"\u20AC"  // Euro €
 #define yen u8"\u00A5"   // Japanese Yen ¥
@@ -132,7 +133,7 @@
 #define rub u8"\u20BD"   // Russian Ruble ₽
 #define lira u8"\u20BA"  // Turkish Lira ₺
 
-// Cursor Movement Macros
+// Cursor Movement Macros — lowercase names
 #define up(n) "\033[" #n "A"
 #define down(n) "\033[" #n "B"
 #define forward(n) "\033[" #n "C"
