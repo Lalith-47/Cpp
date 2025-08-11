@@ -1,4 +1,5 @@
 #include <iostream>
+#include "codes.h"
 using namespace std;
 
 // Defining structure of Queue using Linked List
@@ -23,7 +24,7 @@ bool remove(int);   // Function to delete set of values in the Queue
 // Body of the Main Function
 int main()
 {
-    cout << "\033[2J" << "\033[H";
+    cout << cls << home;
     int noOfElements, choice = NULL;
     cout << "\033[1;35m Enter no of ELements to insert: \033[0m";
     cin >> noOfElements;
@@ -46,7 +47,7 @@ int main()
         cout << endl;
         if (choice == 0)
         {
-            cout << "\033[1;32m Code Terminated\033[0m" << endl;
+            cout << tick << "\033[1;32m Code Terminated\033[0m" << endl;
             break;
         }
         else
@@ -104,7 +105,7 @@ int main()
                 }
                 else if (opt == 0)
                 {
-                    cout << "\033[1;32m\u2705 Code Terminated\033[0m" << endl;
+                    cout << tick << "\033[1;32m\u2705 Code Terminated\033[0m" << endl;
                     return 0;
                 }
                 else
