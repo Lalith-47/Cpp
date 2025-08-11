@@ -25,7 +25,7 @@ bool remove(int);   // Function to delete set of values in the Queue
 int main()
 {
     cout << cls << home;
-    int noOfElements, choice = NULL;
+    int noOfElements, choice = 0;
     cout << "\033[1;35m Enter no of ELements to insert: \033[0m";
     cin >> noOfElements;
     insert(noOfElements);
