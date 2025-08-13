@@ -1,67 +1,147 @@
-# === C++ Compiled Files ===
+# C++ Compiled Object files
 *.o
 *.obj
-*.so
-*.a
-*.out
-a.out
+*.ko
+*.elf
+
+# Precompiled Headers
 *.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
 *.exe
+*.out
+*.app
 
-# === Build and Debug Directories ===
-build/
-bin/
-debug/
-release/
-dist/
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
 
-# === CMake Files ===
+# Visual Studio files
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.suo
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.sbr
+*.sdf
+*.opensdf
+*.unsuccessfulbuild
+ipch/
+*.iobj
+*.ipdb
+*.idb
+*.pdb
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# JetBrains IDEs
+.idea/
+*.iws
+/out/
+
+# CMake
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
+*.cmake
+!CMakeLists.txt
 
-# === VS Code Files ===
-.vscode/
-*.code-workspace
+# Build directories
+build/
+Build/
+debug/
+Debug/
+release/
+Release/
+bin/
+obj/
 
-# === CLion / JetBrains ===
-.idea/
-
-# === Logs and Temporary Files ===
-*.log
-*.tmp
-*.swp
-*.DS_Store
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 *~
 
-# === Core Dumps ===
+# Backup files
+*.bak
+*.backup
+*.tmp
+*.temp
+
+# Log files
+*.log
+
+# Core dumps
 core
 core.*
 
-# === GDB and Valgrind ===
-vgcore.*
-.gdb_history
-.gdbinit
+# MinGW generated files
+*.d
+*.exe.manifest
+*.res
 
-# === Object Dump Files ===
-*.dSYM/
+# Clang/LLVM
+*.bc
+*.ll
 
-# === Backup Files ===
-*.bak
-*.old
-*.orig
+# Coverage files
+*.gcov
+*.gcda
+*.gcno
 
-# === Tags and Indexes ===
-tags
-TAGS
+# Profiling files
+gmon.out
+callgrind.out*
+cachegrind.out*
+perf.data*
 
-# === Custom Competitive Programming Ignore Patterns ===
-# Ignore input/output test cases or backups
-*.in
-*.out.txt
-*.test
-*.run
-*.input
-*.output
-test_cases/
+# Address Sanitizer
+*.asan
+
+# Memory Sanitizer
+*.msan
+
+# Thread Sanitizer
+*.tsan
